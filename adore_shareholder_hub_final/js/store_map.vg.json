@@ -1,0 +1,256 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -28
+    ],
+    "scale": 640,
+    "translate": [
+      355,
+      260
+    ]
+  },
+  "params": [
+    {
+      "name": "brand",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Adore Beauty",
+          "iKOU"
+        ],
+        "name": "Brand: "
+      }
+    },
+    {
+      "name": "stage",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Opened CY25/26",
+          "Existing / earlier"
+        ],
+        "name": "Opening stage: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia.json",
+        "format": {
+          "type": "topojson",
+          "feature": "australia"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties && datum.properties.admin == 'Australia'"
+        },
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/state_store_counts.json"
+            },
+            "key": "State",
+            "fields": [
+              "Stores"
+            ]
+          }
+        },
+        {
+          "calculate": "isValid(datum.Stores) ? datum.Stores : 0",
+          "as": "StoreCount"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#D8BFC6",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "color": {
+          "field": "StoreCount",
+          "type": "quantitative",
+          "title": "Store count",
+          "scale": {
+            "domain": [
+              0,
+              7
+            ],
+            "range": [
+              "#FFF9F5",
+              "#F4DCE2",
+              "#DDAAB8",
+              "#C86D84",
+              "#8B3B53"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "title": "State"
+          },
+          {
+            "field": "StoreCount",
+            "title": "Stores"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/stores.json"
+      },
+      "transform": [
+        {
+          "filter": "brand == 'All' || datum.Brand == brand"
+        },
+        {
+          "filter": "stage == 'All' || datum.Stage == stage"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.8,
+        "opacity": 0.95
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Brand",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Adore Beauty",
+              "iKOU"
+            ],
+            "range": [
+              145,
+              205
+            ]
+          },
+          "legend": null
+        },
+        "color": {
+          "field": "Brand",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Adore Beauty",
+              "iKOU"
+            ],
+            "range": [
+              "#C86D84",
+              "#4B1F34"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Store",
+            "title": "Store"
+          },
+          {
+            "field": "Brand",
+            "title": "Brand"
+          },
+          {
+            "field": "State",
+            "title": "State"
+          },
+          {
+            "field": "City",
+            "title": "City"
+          },
+          {
+            "field": "Opened",
+            "title": "Opened"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "State": "WA",
+            "lat": -26.5,
+            "lon": 121.0
+          },
+          {
+            "State": "SA",
+            "lat": -30.4,
+            "lon": 135.5
+          },
+          {
+            "State": "QLD",
+            "lat": -22.5,
+            "lon": 144.5
+          },
+          {
+            "State": "NSW",
+            "lat": -32.2,
+            "lon": 147.0
+          },
+          {
+            "State": "VIC",
+            "lat": -37.1,
+            "lon": 144.3
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "fontSize": 12,
+        "color": "#8B3B53",
+        "opacity": 0.78
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "State"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  }
+}

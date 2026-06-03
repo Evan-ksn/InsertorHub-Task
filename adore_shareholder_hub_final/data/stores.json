@@ -1,0 +1,182 @@
+[
+  {
+    "Store": "Southland",
+    "Brand": "Adore Beauty",
+    "State": "Victoria",
+    "City": "Melbourne",
+    "Opened": "Feb 2025",
+    "lat": -37.96,
+    "lon": 145.05,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Watergardens",
+    "Brand": "Adore Beauty",
+    "State": "Victoria",
+    "City": "Melbourne",
+    "Opened": "Mar 2025",
+    "lat": -37.7,
+    "lon": 144.78,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Fountain Gate",
+    "Brand": "Adore Beauty",
+    "State": "Victoria",
+    "City": "Melbourne",
+    "Opened": "Sept 2025",
+    "lat": -38.02,
+    "lon": 145.3,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Eastland",
+    "Brand": "Adore Beauty",
+    "State": "Victoria",
+    "City": "Melbourne",
+    "Opened": "Nov 2025",
+    "lat": -37.81,
+    "lon": 145.23,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Melbourne Central",
+    "Brand": "iKOU",
+    "State": "Victoria",
+    "City": "Melbourne",
+    "Opened": "Mar 2025",
+    "lat": -37.81,
+    "lon": 144.96,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Sorrento",
+    "Brand": "iKOU",
+    "State": "Victoria",
+    "City": "Sorrento",
+    "Opened": "Nov 2025",
+    "lat": -38.34,
+    "lon": 144.74,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Broadway",
+    "Brand": "Adore Beauty",
+    "State": "New South Wales",
+    "City": "Sydney",
+    "Opened": "Aug 2025",
+    "lat": -33.88,
+    "lon": 151.19,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Warringah Mall",
+    "Brand": "Adore Beauty",
+    "State": "New South Wales",
+    "City": "Sydney",
+    "Opened": "Dec 2025",
+    "lat": -33.77,
+    "lon": 151.27,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Kotara",
+    "Brand": "Adore Beauty",
+    "State": "New South Wales",
+    "City": "Newcastle",
+    "Opened": "Jan 2026",
+    "lat": -32.94,
+    "lon": 151.71,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Berry",
+    "Brand": "iKOU",
+    "State": "New South Wales",
+    "City": "Berry",
+    "Opened": "Jun 2025",
+    "lat": -34.78,
+    "lon": 150.7,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Leura",
+    "Brand": "iKOU",
+    "State": "New South Wales",
+    "City": "Leura",
+    "Opened": "Existing",
+    "lat": -33.71,
+    "lon": 150.33,
+    "Stage": "Existing / earlier"
+  },
+  {
+    "Store": "George St",
+    "Brand": "iKOU",
+    "State": "New South Wales",
+    "City": "Sydney",
+    "Opened": "Existing",
+    "lat": -33.87,
+    "lon": 151.21,
+    "Stage": "Existing / earlier"
+  },
+  {
+    "Store": "Byron Bay",
+    "Brand": "iKOU",
+    "State": "New South Wales",
+    "City": "Byron Bay",
+    "Opened": "Existing",
+    "lat": -28.65,
+    "lon": 153.62,
+    "Stage": "Existing / earlier"
+  },
+  {
+    "Store": "Carindale",
+    "Brand": "Adore Beauty",
+    "State": "Queensland",
+    "City": "Brisbane",
+    "Opened": "Sept 2025",
+    "lat": -27.5,
+    "lon": 153.1,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Chermside",
+    "Brand": "Adore Beauty",
+    "State": "Queensland",
+    "City": "Brisbane",
+    "Opened": "Dec 2025",
+    "lat": -27.38,
+    "lon": 153.03,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Marion",
+    "Brand": "Adore Beauty",
+    "State": "South Australia",
+    "City": "Adelaide",
+    "Opened": "Oct 2025",
+    "lat": -35.02,
+    "lon": 138.55,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Carousel",
+    "Brand": "Adore Beauty",
+    "State": "Western Australia",
+    "City": "Perth",
+    "Opened": "Jun 2025",
+    "lat": -32.02,
+    "lon": 115.94,
+    "Stage": "Opened CY25/26"
+  },
+  {
+    "Store": "Booragoon",
+    "Brand": "Adore Beauty",
+    "State": "Western Australia",
+    "City": "Perth",
+    "Opened": "Jul 2025",
+    "lat": -32.04,
+    "lon": 115.83,
+    "Stage": "Opened CY25/26"
+  }
+]

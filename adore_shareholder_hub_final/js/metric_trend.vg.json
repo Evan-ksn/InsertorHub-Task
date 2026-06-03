@@ -1,0 +1,206 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "values": [
+      {
+        "Period": "H1 FY24",
+        "Metric": "Revenue",
+        "Value": 100.7,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "Revenue",
+        "Value": 103.0,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "Revenue",
+        "Value": 111.9,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY24",
+        "Metric": "Underlying EBITDA",
+        "Value": 2.4,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "Underlying EBITDA",
+        "Value": 3.6,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "Underlying EBITDA",
+        "Value": 4.1,
+        "Unit": "$M"
+      },
+      {
+        "Period": "H1 FY24",
+        "Metric": "Gross margin",
+        "Value": 33.5,
+        "Unit": "%"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "Gross margin",
+        "Value": 36.2,
+        "Unit": "%"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "Gross margin",
+        "Value": 35.0,
+        "Unit": "%"
+      },
+      {
+        "Period": "H1 FY24",
+        "Metric": "Marketing spend",
+        "Value": 13.8,
+        "Unit": "% of revenue"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "Marketing spend",
+        "Value": 13.5,
+        "Unit": "% of revenue"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "Marketing spend",
+        "Value": 8.3,
+        "Unit": "% of revenue"
+      },
+      {
+        "Period": "H1 FY24",
+        "Metric": "Customer acquisition cost",
+        "Value": 77.0,
+        "Unit": "$"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "Customer acquisition cost",
+        "Value": 75.0,
+        "Unit": "$"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "Customer acquisition cost",
+        "Value": 33.0,
+        "Unit": "$"
+      },
+      {
+        "Period": "H1 FY24",
+        "Metric": "New customers",
+        "Value": 181.6,
+        "Unit": "K"
+      },
+      {
+        "Period": "H1 FY25",
+        "Metric": "New customers",
+        "Value": 182.1,
+        "Unit": "K"
+      },
+      {
+        "Period": "H1 FY26",
+        "Metric": "New customers",
+        "Value": 221.7,
+        "Unit": "K"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "metric",
+      "value": "Revenue",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Revenue",
+          "Underlying EBITDA",
+          "Gross margin",
+          "Marketing spend",
+          "Customer acquisition cost",
+          "New customers"
+        ],
+        "name": "Metric: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Metric == metric"
+    },
+    {
+      "calculate": "datum.Value + ' ' + datum.Unit",
+      "as": "Display"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 90
+        },
+        "strokeWidth": 4,
+        "color": "#C86D84"
+      },
+      "encoding": {
+        "x": {
+          "field": "Period",
+          "type": "ordinal",
+          "axis": {
+            "title": null
+          }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "axis": {
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Metric"
+          },
+          {
+            "field": "Period"
+          },
+          {
+            "field": "Display",
+            "title": "Value"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -18,
+        "fontWeight": "bold",
+        "color": "#251820"
+      },
+      "encoding": {
+        "x": {
+          "field": "Period",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Display"
+        }
+      }
+    }
+  ]
+}

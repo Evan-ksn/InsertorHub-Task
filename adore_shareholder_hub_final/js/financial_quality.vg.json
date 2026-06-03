@@ -1,0 +1,163 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "values": [
+      {
+        "Metric": "Revenue",
+        "H1 FY25": 103.0,
+        "H1 FY26": 111.9,
+        "Change": 8.7,
+        "Unit": "$M",
+        "Signal": "Improved"
+      },
+      {
+        "Metric": "Gross profit margin",
+        "H1 FY25": 36.2,
+        "H1 FY26": 35.0,
+        "Change": -120,
+        "Unit": "bps",
+        "Signal": "Watch"
+      },
+      {
+        "Metric": "Underlying EBITDA",
+        "H1 FY25": 3.6,
+        "H1 FY26": 4.1,
+        "Change": 14.5,
+        "Unit": "$M",
+        "Signal": "Improved"
+      },
+      {
+        "Metric": "Marketing costs",
+        "H1 FY25": 13.7,
+        "H1 FY26": 9.6,
+        "Change": -29.8,
+        "Unit": "$M",
+        "Signal": "Improved"
+      },
+      {
+        "Metric": "Employee costs",
+        "H1 FY25": 11.6,
+        "H1 FY26": 14.8,
+        "Change": 27.7,
+        "Unit": "$M",
+        "Signal": "Watch"
+      },
+      {
+        "Metric": "Other costs",
+        "H1 FY25": 8.4,
+        "H1 FY26": 10.7,
+        "Change": 26.9,
+        "Unit": "$M",
+        "Signal": "Watch"
+      },
+      {
+        "Metric": "Cash",
+        "H1 FY25": 12.7,
+        "H1 FY26": 8.2,
+        "Change": -4.5,
+        "Unit": "$M",
+        "Signal": "Watch"
+      },
+      {
+        "Metric": "Inventory",
+        "H1 FY25": 20.3,
+        "H1 FY26": 27.9,
+        "Change": 7.6,
+        "Unit": "$M",
+        "Signal": "Watch"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "signal",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Improved",
+          "Watch"
+        ],
+        "name": "Signal: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "signal == 'All' || datum.Signal == signal"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "filled": true,
+    "opacity": 0.88
+  },
+  "encoding": {
+    "x": {
+      "field": "H1 FY25",
+      "type": "quantitative",
+      "axis": {
+        "title": "Previous comparator / base value"
+      }
+    },
+    "y": {
+      "field": "H1 FY26",
+      "type": "quantitative",
+      "axis": {
+        "title": "H1 FY26 value"
+      }
+    },
+    "size": {
+      "field": "Change",
+      "type": "quantitative",
+      "scale": {
+        "range": [
+          120,
+          1400
+        ]
+      },
+      "legend": null
+    },
+    "color": {
+      "field": "Signal",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Improved",
+          "Watch"
+        ],
+        "range": [
+          "#2F7A55",
+          "#A96516"
+        ]
+      },
+      "legend": {
+        "orient": "top",
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Metric"
+      },
+      {
+        "field": "H1 FY25"
+      },
+      {
+        "field": "H1 FY26"
+      },
+      {
+        "field": "Change"
+      },
+      {
+        "field": "Unit"
+      },
+      {
+        "field": "Signal"
+      }
+    ]
+  }
+}

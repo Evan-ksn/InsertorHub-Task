@@ -1,0 +1,148 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "values": [
+      {
+        "Area": "Loyalty revenue",
+        "Value": 78,
+        "Unit": "% of sales",
+        "Group": "Engagement"
+      },
+      {
+        "Area": "App online sales",
+        "Value": 35,
+        "Unit": "% of online sales",
+        "Group": "Engagement"
+      },
+      {
+        "Area": "Skincare mix",
+        "Value": 48,
+        "Unit": "% store category mix",
+        "Group": "Category"
+      },
+      {
+        "Area": "Haircare mix",
+        "Value": 20,
+        "Unit": "% store category mix",
+        "Group": "Category"
+      },
+      {
+        "Area": "Fragrance mix",
+        "Value": 18,
+        "Unit": "% store category mix",
+        "Group": "Category"
+      },
+      {
+        "Area": "Makeup mix",
+        "Value": 12,
+        "Unit": "% store category mix",
+        "Group": "Category"
+      },
+      {
+        "Area": "Wellness mix",
+        "Value": 2,
+        "Unit": "% store category mix",
+        "Group": "Category"
+      },
+      {
+        "Area": "In-store conversion",
+        "Value": 11.1,
+        "Unit": "%",
+        "Group": "Omni"
+      },
+      {
+        "Area": "Omni LTV uplift",
+        "Value": 20,
+        "Unit": "% higher",
+        "Group": "Omni"
+      },
+      {
+        "Area": "Omni revenue",
+        "Value": 5,
+        "Unit": "%+ of revenue",
+        "Group": "Omni"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "group",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Engagement",
+          "Category",
+          "Omni"
+        ],
+        "name": "Lens: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "group == 'All' || datum.Group == group"
+    },
+    {
+      "calculate": "datum.Value + ' ' + datum.Unit",
+      "as": "Display"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 9
+  },
+  "encoding": {
+    "x": {
+      "field": "Value",
+      "type": "quantitative",
+      "axis": {
+        "title": null
+      }
+    },
+    "y": {
+      "field": "Area",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelLimit": 170
+      }
+    },
+    "color": {
+      "field": "Group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Engagement",
+          "Category",
+          "Omni"
+        ],
+        "range": [
+          "#8B3B53",
+          "#C86D84",
+          "#2F7A55"
+        ]
+      },
+      "legend": {
+        "orient": "top",
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Area"
+      },
+      {
+        "field": "Display",
+        "title": "Value"
+      },
+      {
+        "field": "Group"
+      }
+    ]
+  }
+}

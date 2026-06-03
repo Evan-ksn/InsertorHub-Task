@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adore Beauty H1 FY26 Retail Shareholder Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Adore Beauty Shareholder Hub">
+      <span class="brand-mark">ADORE</span>
+      <span class="brand-sub">Retail Shareholder Hub</span>
+    </a>
+    <nav>
+      <a href="#result">30-sec result</a>
+      <a href="#story">Story</a>
+      <a href="#map">Stores</a>
+      <a href="#tracker">Tracker</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">H1 FY26 investor update · redesigned for retail shareholders</p>
+        <h1>Growth is working. Now track the margin story.</h1>
+        <p class="lead">
+          A shareholder-facing hub that turns Adore Beauty’s static results PDF into a guided investor experience: clear signals, honest watch items, strategy progress and the questions retail investors actually ask.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#result">View the result</a>
+          <a class="button secondary" href="#tracker">Track the strategy</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-top">
+          <p class="panel-label">Investment narrative</p>
+          <span class="status-pill">H1 FY26</span>
+        </div>
+        <h2>Customer growth → loyalty/app → stores → efficiency → margin path</h2>
+        <div class="hero-metrics">
+          <div><span>Revenue</span><strong>$111.9M</strong><small>+8.7%</small></div>
+          <div><span>EBITDA</span><strong>$4.1M</strong><small>+14.5%</small></div>
+          <div><span>Margin</span><strong>35.0%</strong><small class="watch-text">-120 bps</small></div>
+        </div>
+        <div class="mini-progress"><span></span></div>
+        <small class="panel-foot">FY26 underlying EBITDA margin guidance: 3–4%</small>
+      </aside>
+    </section>
+
+    <section class="kpi-strip" aria-label="Headline metrics">
+      <div class="kpi"><span>Revenue</span><strong>$111.9M</strong><em class="up">+8.7%</em></div>
+      <div class="kpi"><span>Active customers</span><strong>850.4K</strong><em class="up">+4.7%</em></div>
+      <div class="kpi"><span>New customers</span><strong>221.7K</strong><em class="up">+21.8%</em></div>
+      <div class="kpi"><span>Underlying EBITDA</span><strong>$4.1M</strong><em class="up">+14.5%</em></div>
+      <div class="kpi watch"><span>Gross margin</span><strong>35.0%</strong><em>-120 bps</em></div>
+    </section>
+
+    <section class="section intro" id="result">
+      <div class="section-title split-title">
+        <div>
+          <p class="eyebrow">The 30-second result</p>
+          <h2>A balanced result, not a good-news slide.</h2>
+        </div>
+        <p>Retail shareholders should immediately understand the trade-off: customer growth and efficiency improved, while margin, cash, inventory and store maturity need monitoring.</p>
+      </div>
+
+      <div class="three-cards">
+        <article class="info-card positive">
+          <span>01</span>
+          <h3>Growth is visible</h3>
+          <p>Revenue reached $111.9M, supported by stores, peak trading, loyalty and iKOU.</p>
+        </article>
+        <article class="info-card positive">
+          <span>02</span>
+          <h3>Acquisition is cleaner</h3>
+          <p>New customers rose 21.8% while CAC fell to $33, improving the quality of growth.</p>
+        </article>
+        <article class="info-card watch-card">
+          <span>03</span>
+          <h3>Margin is the question</h3>
+          <p>Gross margin fell 120 bps, so the next update needs to prove growth can convert into leverage.</p>
+        </article>
+      </div>
+
+      <div class="chart-shell large">
+        <div class="chart-head">
+          <div>
+            <p class="eyebrow">Stakeholder trade-off view</p>
+            <h3>What improved vs. what needs watching</h3>
+          </div>
+          <p class="chart-note">Bars show relative signal strength. Hover for the exact reported result and why it matters.</p>
+        </div>
+        <div id="growth-pressure"></div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="section-title">
+        <p class="eyebrow">The story in one visual</p>
+        <h2>The investment case needs a clearer logic chain.</h2>
+        <p> 
+          The H1 result has the ingredients of a stronger story. The hub connects them into the path shareholders need to follow.</p>
+      </div>
+
+      <div class="story-flow">
+        <div><span>01</span><strong>Customer growth</strong><small>850.4K active customers</small></div>
+        <div><span>02</span><strong>Loyalty/app</strong><small>78% sales from loyalty; app 35% of online sales</small></div>
+        <div><span>03</span><strong>Omni stores</strong><small>18 stores now; 25+ CY2027 target</small></div>
+        <div><span>04</span><strong>Higher value</strong><small>Omni customer LTV +20%</small></div>
+        <div><span>05</span><strong>Efficiency</strong><small>AI, ERP and fulfilment centre</small></div>
+        <div><span>06</span><strong>Margin path</strong><small>3–4% FY26 EBITDA margin guide</small></div>
+      </div>
+
+      <div class="grid two">
+        <div class="chart-shell">
+          <div class="chart-head">
+            <div>
+              <p class="eyebrow">Interactive trend selector</p>
+              <h3>Performance over time</h3>
+            </div>
+            <p class="chart-note">Use the selector to move between growth, margin and acquisition metrics.</p>
+          </div>
+          <div id="metric-trend"></div>
+        </div>
+
+        <div class="chart-shell">
+          <div class="chart-head">
+            <div>
+              <p class="eyebrow">Channel quality</p>
+              <h3>Why stores are not just stores</h3>
+            </div>
+            <p class="chart-note">Shows the engagement and customer-value logic behind omni expansion.</p>
+          </div>
+          <div id="channel-quality"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section map-section" id="map">
+      <div class="section-title split-title">
+        <div>
+          <p class="eyebrow">Store footprint</p>
+          <h2>From static rollout slide to interactive expansion map.</h2>
+        </div>
+        <p>The map turns store footprint into a clearer investor story: where Adore and iKOU are expanding, where the network is concentrated, and why store maturity matters.</p>
+      </div>
+
+      <div class="grid two map-grid">
+        <div class="chart-shell">
+          <div class="chart-head">
+            <div>
+              <p class="eyebrow">Interactive store map</p>
+              <h3>18 stores across the network</h3>
+            </div>
+            <p class="chart-note">Filter by brand and opening stage. Hover markers for store-level details.</p>
+          </div>
+          <div id="store-map"></div>
+        </div>
+
+        <aside class="store-panel">
+          <h3>What this helps shareholders understand</h3>
+          <ul>
+            <li><strong>Store maturity:</strong> stores are expected to mature over 12–18 months.</li>
+            <li><strong>Omni logic:</strong> omni customers have 20% higher lifetime value.</li>
+            <li><strong>Network target:</strong> 20 stores by FY26 and 25+ by CY2027.</li>
+            <li><strong>Next question:</strong> do mature stores lift conversion and online demand in each catchment?</li>
+          </ul>
+          <div class="mini-stats">
+            <div><span>In-store traffic</span><strong>670K</strong></div>
+            <div><span>Conversion</span><strong>11.1%</strong></div>
+            <div><span>Omni LTV</span><strong>+20%</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tracker">
+      <div class="section-title split-title">
+        <div>
+          <p class="eyebrow">Strategy tracker</p>
+          <h2>What shareholders should watch next half.</h2>
+        </div>
+        <p>This turns management targets into a simple monitoring system instead of leaving them as isolated outlook bullets.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="chart-shell">
+          <div class="chart-head">
+            <div>
+              <p class="eyebrow">Target progress</p>
+              <h3>Are we on track?</h3>
+            </div>
+            <p class="chart-note">Progress shown using current result vs stated targets.</p>
+          </div>
+          <div id="strategy-tracker"></div>
+        </div>
+
+        <div class="chart-shell">
+          <div class="chart-head">
+            <div>
+              <p class="eyebrow">Financial quality</p>
+              <h3>Operating leverage watchlist</h3>
+            </div>
+            <p class="chart-note">A pressure-point view to keep shareholder attention on quality of earnings.</p>
+          </div>
+          <div id="financial-quality"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="section-title">
+        <p class="eyebrow">Retail shareholder FAQ</p>
+        <h2>Answer the questions a retail investor is already asking.</h2>
+      </div>
+
+      <div class="faq-grid">
+        <details open>
+          <summary>Why is gross margin down?</summary>
+          <p>Peak promotional trading supported sales but reduced gross margin. The next-half watch item is whether lower promotional intensity supports margin recovery.</p>
+        </details>
+        <details>
+          <summary>Are stores working?</summary>
+          <p>Early signals are positive: store conversion is 11.1%, stores mature over 12–18 months, and omni customers have 20% higher LTV.</p>
+        </details>
+        <details>
+          <summary>Why invest in fulfilment now?</summary>
+          <p>The National Fulfilment Centre should support scale, automation and efficiency, with payback forecast under four years.</p>
+        </details>
+        <details>
+          <summary>What does iKOU add?</summary>
+          <p>iKOU adds owned-brand economics and a multi-channel growth platform across retail, direct-to-consumer and wholesale.</p>
+        </details>
+        <details>
+          <summary>What should I watch next half?</summary>
+          <p>Gross margin recovery, store maturity, active customer growth, loyalty/app contribution, inventory control and NFC/ERP execution.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>Adore Beauty Retail Shareholder Hub</strong>
+        <p>Designed as a clearer investor communication layer for ASX small-cap shareholders.</p>
+      </div>
+      <span>Prototype for InvestorHub GTM hiring task · built with HTML, CSS and Vega-Lite</span>
+    </footer>
+  </main>
+
+  <script src="js/embed.js"></script>
+</body>
+</html>

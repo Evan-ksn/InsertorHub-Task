@@ -1,0 +1,310 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Premium strategy tracker for Adore Beauty shareholder dashboard.",
+  "width": "container",
+  "height": 390,
+  "data": {
+    "values": [
+      {
+        "Target": "EBITDA margin",
+        "Group": "Profitability",
+        "Current": 3.7,
+        "Goal": 4,
+        "Progress": 0.925,
+        "Label": "3.7% / 3\u20134%",
+        "Status": "On track",
+        "Detail": "H1 FY26 EBITDA margin sits within FY26 guidance range.",
+        "Rank": 1
+      },
+      {
+        "Target": "FY26 store target",
+        "Group": "Near-term",
+        "Current": 18,
+        "Goal": 20,
+        "Progress": 0.9,
+        "Label": "18 / 20",
+        "Status": "Close",
+        "Detail": "Store network is close to the FY26 target.",
+        "Rank": 2
+      },
+      {
+        "Target": "Owned brands revenue",
+        "Group": "Growth",
+        "Current": 4.5,
+        "Goal": 6,
+        "Progress": 0.75,
+        "Label": "tracking to >6%",
+        "Status": "Building",
+        "Detail": "Owned brands are tracking toward the FY26 revenue target.",
+        "Rank": 3
+      },
+      {
+        "Target": "Store network",
+        "Group": "Growth",
+        "Current": 18,
+        "Goal": 25,
+        "Progress": 0.72,
+        "Label": "18 / 25+",
+        "Status": "Scaling",
+        "Detail": "Longer-term store network target is 25+ by CY2027.",
+        "Rank": 4
+      },
+      {
+        "Target": "Active customers",
+        "Group": "Growth",
+        "Current": 850.4,
+        "Goal": 1250,
+        "Progress": 0.68,
+        "Label": "850.4K / 1.25M",
+        "Status": "Scaling",
+        "Detail": "Active customer growth needs to continue toward the CY2027 target.",
+        "Rank": 5
+      },
+      {
+        "Target": "NFC readiness",
+        "Group": "Execution",
+        "Current": 60,
+        "Goal": 100,
+        "Progress": 0.6,
+        "Label": "Q1 FY27 go-live",
+        "Status": "In progress",
+        "Detail": "New National Fulfilment Centre site secured; operational target is Q1 FY27.",
+        "Rank": 6
+      }
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "round(datum.Progress * 100) + '%'",
+      "as": "ProgressLabel"
+    },
+    {
+      "calculate": "datum.Label + ' \u00b7 ' + datum.Status",
+      "as": "DisplayLabel"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 13,
+        "height": {
+          "band": 0.64
+        },
+        "color": "#F3ECE7"
+      },
+      "encoding": {
+        "x": {
+          "datum": 1,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1.28
+            ]
+          },
+          "axis": {
+            "title": null,
+            "format": "%",
+            "labelColor": "#796A70",
+            "labelFontSize": 12,
+            "grid": false,
+            "domain": false,
+            "ticks": false,
+            "values": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ]
+          }
+        },
+        "y": {
+          "field": "Target",
+          "type": "nominal",
+          "sort": {
+            "field": "Rank",
+            "order": "ascending"
+          },
+          "axis": {
+            "title": null,
+            "labelColor": "#5E4A50",
+            "labelFontSize": 13,
+            "labelLimit": 170,
+            "labelPadding": 10,
+            "domain": false,
+            "ticks": false
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 13,
+        "height": {
+          "band": 0.64
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "Progress",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1.28
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "Target",
+          "type": "nominal",
+          "sort": {
+            "field": "Rank",
+            "order": "ascending"
+          }
+        },
+        "color": {
+          "field": "Group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Growth",
+              "Near-term",
+              "Profitability",
+              "Execution"
+            ],
+            "range": [
+              "#B97888",
+              "#7A344C",
+              "#7E9A86",
+              "#B98240"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "title": null,
+            "labelColor": "#5E4A50",
+            "labelFontSize": 12,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "padding": 8
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Target",
+            "title": "Target"
+          },
+          {
+            "field": "Group",
+            "title": "Type"
+          },
+          {
+            "field": "Label",
+            "title": "Current vs target"
+          },
+          {
+            "field": "ProgressLabel",
+            "title": "Progress"
+          },
+          {
+            "field": "Status",
+            "title": "Status"
+          },
+          {
+            "field": "Detail",
+            "title": "Why it matters"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#241720"
+      },
+      "encoding": {
+        "x": {
+          "datum": 1.025,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1.28
+            ]
+          }
+        },
+        "y": {
+          "field": "Target",
+          "type": "nominal",
+          "sort": {
+            "field": "Rank",
+            "order": "ascending"
+          }
+        },
+        "text": {
+          "field": "DisplayLabel"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#FFFFFF"
+      },
+      "encoding": {
+        "x": {
+          "field": "Progress",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              1.28
+            ]
+          }
+        },
+        "y": {
+          "field": "Target",
+          "type": "nominal",
+          "sort": {
+            "field": "Rank",
+            "order": "ascending"
+          }
+        },
+        "text": {
+          "field": "ProgressLabel"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "labelFont": "Inter, system-ui, sans-serif",
+      "titleFont": "Inter, system-ui, sans-serif"
+    },
+    "legend": {
+      "labelFont": "Inter, system-ui, sans-serif",
+      "titleFont": "Inter, system-ui, sans-serif"
+    }
+  }
+}

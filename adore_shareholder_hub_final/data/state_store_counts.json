@@ -1,0 +1,22 @@
+[
+  {
+    "State": "New South Wales",
+    "Stores": 7
+  },
+  {
+    "State": "Queensland",
+    "Stores": 2
+  },
+  {
+    "State": "South Australia",
+    "Stores": 1
+  },
+  {
+    "State": "Victoria",
+    "Stores": 6
+  },
+  {
+    "State": "Western Australia",
+    "Stores": 2
+  }
+]

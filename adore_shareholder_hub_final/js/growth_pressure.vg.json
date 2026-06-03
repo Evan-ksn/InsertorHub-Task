@@ -1,0 +1,296 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Clean two-panel stakeholder view with no overlapping labels.",
+  "width": "container",
+  "height": 390,
+  "data": {
+    "values": [
+      {
+        "Metric": "CAC efficiency",
+        "Type": "Improved",
+        "Value": "$33",
+        "Move": "\u219356%",
+        "Detail": "Customer acquisition became materially cheaper",
+        "Score": 96,
+        "Rank": 1
+      },
+      {
+        "Metric": "Marketing efficiency",
+        "Type": "Improved",
+        "Value": "$9.6M",
+        "Move": "\u219330%",
+        "Detail": "Marketing and advertising costs reduced",
+        "Score": 88,
+        "Rank": 2
+      },
+      {
+        "Metric": "New customers",
+        "Type": "Improved",
+        "Value": "221.7K",
+        "Move": "\u219122%",
+        "Detail": "New customer growth accelerated",
+        "Score": 78,
+        "Rank": 3
+      },
+      {
+        "Metric": "Underlying EBITDA",
+        "Type": "Improved",
+        "Value": "$4.1M",
+        "Move": "\u219115%",
+        "Detail": "Underlying EBITDA improved despite investment",
+        "Score": 67,
+        "Rank": 4
+      },
+      {
+        "Metric": "Revenue",
+        "Type": "Improved",
+        "Value": "$111.9M",
+        "Move": "\u21919%",
+        "Detail": "Topline growth remains positive",
+        "Score": 58,
+        "Rank": 5
+      },
+      {
+        "Metric": "Gross margin",
+        "Type": "Watch",
+        "Value": "35.0%",
+        "Move": "\u2193120bps",
+        "Detail": "Promotional activity supported sales but pressured margin",
+        "Score": 92,
+        "Rank": 1
+      },
+      {
+        "Metric": "Inventory",
+        "Type": "Watch",
+        "Value": "$27.9M",
+        "Move": "was $20.3M",
+        "Detail": "Inventory increased as the store network scales",
+        "Score": 82,
+        "Rank": 2
+      },
+      {
+        "Metric": "Cash",
+        "Type": "Watch",
+        "Value": "$8.2M",
+        "Move": "was $12.7M",
+        "Detail": "Cash reduced while the business invests in growth",
+        "Score": 74,
+        "Rank": 3
+      },
+      {
+        "Metric": "Employee costs",
+        "Type": "Watch",
+        "Value": "$14.8M",
+        "Move": "\u219128%",
+        "Detail": "Cost growth needs to convert into operating leverage",
+        "Score": 63,
+        "Rank": 4
+      },
+      {
+        "Metric": "Other costs",
+        "Type": "Watch",
+        "Value": "$10.7M",
+        "Move": "\u219127%",
+        "Detail": "Other operating costs rose as the business scales",
+        "Score": 58,
+        "Rank": 5
+      }
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "datum.Value + ' \u00b7 ' + datum.Move",
+      "as": "Label"
+    },
+    {
+      "calculate": "datum.Value + ' \u00b7 ' + datum.Move + ' \u2014 ' + datum.Detail",
+      "as": "TooltipText"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "Type",
+      "type": "nominal",
+      "sort": [
+        "Improved",
+        "Watch"
+      ],
+      "header": {
+        "title": null,
+        "labelExpr": "datum.label == 'Improved' ? 'Strengthening the story' : 'Needs watching'",
+        "labelFontSize": 21,
+        "labelFontWeight": "bold",
+        "labelColor": "#241720",
+        "labelPadding": 18
+      }
+    }
+  },
+  "spec": {
+    "width": 540,
+    "height": 285,
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "cornerRadius": 13,
+          "height": {
+            "band": 0.66
+          },
+          "color": "#F3ECE7"
+        },
+        "encoding": {
+          "x": {
+            "datum": 100,
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                155
+              ]
+            },
+            "axis": null
+          },
+          "y": {
+            "field": "Metric",
+            "type": "nominal",
+            "sort": {
+              "field": "Rank",
+              "order": "ascending"
+            },
+            "axis": {
+              "title": null,
+              "domain": false,
+              "ticks": false,
+              "labelColor": "#5E4A50",
+              "labelFontSize": 13,
+              "labelLimit": 170,
+              "labelPadding": 8
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "bar",
+          "cornerRadius": 13,
+          "height": {
+            "band": 0.66
+          }
+        },
+        "encoding": {
+          "x": {
+            "field": "Score",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                155
+              ]
+            },
+            "axis": null
+          },
+          "y": {
+            "field": "Metric",
+            "type": "nominal",
+            "sort": {
+              "field": "Rank",
+              "order": "ascending"
+            }
+          },
+          "color": {
+            "field": "Type",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Improved",
+                "Watch"
+              ],
+              "range": [
+                "#7E9A86",
+                "#C9877C"
+              ]
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "Metric",
+              "title": "Metric"
+            },
+            {
+              "field": "Type",
+              "title": "Signal"
+            },
+            {
+              "field": "Label",
+              "title": "Reported result"
+            },
+            {
+              "field": "Detail",
+              "title": "Why it matters"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 10,
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "color": "#241720"
+        },
+        "encoding": {
+          "x": {
+            "datum": 104,
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                155
+              ]
+            }
+          },
+          "y": {
+            "field": "Metric",
+            "type": "nominal",
+            "sort": {
+              "field": "Rank",
+              "order": "ascending"
+            }
+          },
+          "text": {
+            "field": "Label"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "x": "independent",
+      "y": "independent",
+      "color": "shared"
+    }
+  },
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": null
+    },
+    "facet": {
+      "spacing": 20
+    },
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "labelFont": "Inter, system-ui, sans-serif",
+      "titleFont": "Inter, system-ui, sans-serif"
+    },
+    "header": {
+      "labelFont": "Inter, system-ui, sans-serif"
+    }
+  }
+}
