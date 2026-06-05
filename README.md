@@ -25,6 +25,7 @@ The H1 FY26 result contains the right ingredients, but retail shareholders need 
 - Target progress tracker
 - Financial quality watchlist
 - Retail shareholder FAQ
+- Investor pulse survey with a 30% customer offer concept
 
 ## Run locally
 
@@ -53,3 +54,7 @@ Do not open `index.html` directly using `file://`, because the Vega map loads lo
 ## Notes
 
 All figures are manually transcribed from Adore Beauty's H1 FY26 Results Presentation and organised into a more shareholder-friendly experience.
+
+## Latest update
+
+Added an Investor Pulse Survey section to demonstrate how InvestorHub can turn shareholder attention into useful feedback and potential customer conversion through a 30% Adore Beauty offer.

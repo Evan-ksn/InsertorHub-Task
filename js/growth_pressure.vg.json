@@ -2,14 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Clean two-panel stakeholder view with no overlapping labels.",
   "width": "container",
-  "height": 390,
+  "height": 400,
   "data": {
     "values": [
       {
         "Metric": "CAC efficiency",
         "Type": "Improved",
         "Value": "$33",
-        "Move": "\u219356%",
+        "Move": "↓ 56%",
         "Detail": "Customer acquisition became materially cheaper",
         "Score": 96,
         "Rank": 1
@@ -18,7 +18,7 @@
         "Metric": "Marketing efficiency",
         "Type": "Improved",
         "Value": "$9.6M",
-        "Move": "\u219330%",
+        "Move": "↓ 30%",
         "Detail": "Marketing and advertising costs reduced",
         "Score": 88,
         "Rank": 2
@@ -27,7 +27,7 @@
         "Metric": "New customers",
         "Type": "Improved",
         "Value": "221.7K",
-        "Move": "\u219122%",
+        "Move": "↑ 22%",
         "Detail": "New customer growth accelerated",
         "Score": 78,
         "Rank": 3
@@ -36,7 +36,7 @@
         "Metric": "Underlying EBITDA",
         "Type": "Improved",
         "Value": "$4.1M",
-        "Move": "\u219115%",
+        "Move": "↑ 15%",
         "Detail": "Underlying EBITDA improved despite investment",
         "Score": 67,
         "Rank": 4
@@ -45,7 +45,7 @@
         "Metric": "Revenue",
         "Type": "Improved",
         "Value": "$111.9M",
-        "Move": "\u21919%",
+        "Move": "↑ 9%",
         "Detail": "Topline growth remains positive",
         "Score": 58,
         "Rank": 5
@@ -54,7 +54,7 @@
         "Metric": "Gross margin",
         "Type": "Watch",
         "Value": "35.0%",
-        "Move": "\u2193120bps",
+        "Move": "↓ 120 bps",
         "Detail": "Promotional activity supported sales but pressured margin",
         "Score": 92,
         "Rank": 1
@@ -81,7 +81,7 @@
         "Metric": "Employee costs",
         "Type": "Watch",
         "Value": "$14.8M",
-        "Move": "\u219128%",
+        "Move": "↑ 28%",
         "Detail": "Cost growth needs to convert into operating leverage",
         "Score": 63,
         "Rank": 4
@@ -90,7 +90,7 @@
         "Metric": "Other costs",
         "Type": "Watch",
         "Value": "$10.7M",
-        "Move": "\u219127%",
+        "Move": "↑ 27%",
         "Detail": "Other operating costs rose as the business scales",
         "Score": 58,
         "Rank": 5
@@ -99,11 +99,11 @@
   },
   "transform": [
     {
-      "calculate": "datum.Value + ' \u00b7 ' + datum.Move",
+      "calculate": "datum.Value + ' · ' + datum.Move",
       "as": "Label"
     },
     {
-      "calculate": "datum.Value + ' \u00b7 ' + datum.Move + ' \u2014 ' + datum.Detail",
+      "calculate": "datum.Value + ' · ' + datum.Move + ' — ' + datum.Detail",
       "as": "TooltipText"
     }
   ],
@@ -118,25 +118,25 @@
       "header": {
         "title": null,
         "labelExpr": "datum.label == 'Improved' ? 'Strengthening the story' : 'Needs watching'",
-        "labelFontSize": 21,
+        "labelFontSize": 24,
         "labelFontWeight": "bold",
-        "labelColor": "#241720",
-        "labelPadding": 18
+        "labelColor": "#2A1221",
+        "labelPadding": 22
       }
     }
   },
   "spec": {
     "width": 540,
-    "height": 285,
+    "height": 295,
     "layer": [
       {
         "mark": {
           "type": "bar",
-          "cornerRadius": 13,
+          "cornerRadius": 16,
           "height": {
-            "band": 0.66
+            "band": 0.62
           },
-          "color": "#F3ECE7"
+          "color": "#F5ECE8"
         },
         "encoding": {
           "x": {
@@ -161,10 +161,10 @@
               "title": null,
               "domain": false,
               "ticks": false,
-              "labelColor": "#5E4A50",
-              "labelFontSize": 13,
-              "labelLimit": 170,
-              "labelPadding": 8
+              "labelColor": "#4E3340",
+              "labelFontSize": 15,
+              "labelLimit": 190,
+              "labelPadding": 10
             }
           }
         }
@@ -172,9 +172,9 @@
       {
         "mark": {
           "type": "bar",
-          "cornerRadius": 13,
+          "cornerRadius": 16,
           "height": {
-            "band": 0.66
+            "band": 0.62
           }
         },
         "encoding": {
@@ -206,8 +206,8 @@
                 "Watch"
               ],
               "range": [
-                "#7E9A86",
-                "#C9877C"
+                "#B76782",
+                "#4B1832"
               ]
             },
             "legend": null
@@ -237,10 +237,10 @@
           "type": "text",
           "align": "left",
           "baseline": "middle",
-          "dx": 10,
-          "fontSize": 12,
+          "dx": 12,
+          "fontSize": 14,
           "fontWeight": "bold",
-          "color": "#241720"
+          "color": "#2A1221"
         },
         "encoding": {
           "x": {
@@ -281,16 +281,16 @@
       "stroke": null
     },
     "facet": {
-      "spacing": 20
+      "spacing": 24
     },
     "axis": {
       "grid": false,
       "domain": false,
-      "labelFont": "Inter, system-ui, sans-serif",
-      "titleFont": "Inter, system-ui, sans-serif"
+      "labelFont": "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif",
+      "titleFont": "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
     },
     "header": {
-      "labelFont": "Inter, system-ui, sans-serif"
+      "labelFont": "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
     }
   }
 }
